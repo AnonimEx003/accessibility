@@ -3,81 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessible Web Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 20px;
+    <title>Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("dark-mode") === "enabled") {
+                document.body.classList.add("dark-mode");
+            }
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("dark-mode", "enabled");
+            } else {
+                localStorage.setItem("dark-mode", "disabled");
+            }
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        .content {
-            margin-top: 20px;
-        }
-        .button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 10px 0;
-        }
-        .button:focus {
-            outline: 3px solid #FF0000; /* Red focus outline for accessibility */
-        }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-    </style>
+    </script>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="home.php">Home</a>
+            <a href="about.php">About Us</a>
+            <a href="contact.php">Contact</a>
+            <a href="reviews.php">Reviews</a>
+            <a href="calculator.php">Calculator</a>
+            <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+        </nav>
+    </header>
 
-<header>
-    <h1>Welcome to Our Accessible Web Page</h1>
-</header>
 
-<div class="content">
-    <h2>Navigation</h2>
-    <nav>
-        <ul>
-            <li><a href="#section1" accesskey="1">Section 1 (Alt + 1)</a></li>
-            <li><a href="#section2" accesskey="2">Section 2 (Alt + 2)</a></li>
-            <li><a href="#section3" accesskey="3">Section 3 (Alt + 3)</a></li>
-        </ul>
-    </nav>
 
-    <section id="section1" tabindex="0">
-        <h2>Section 1</h2>
-        <p>This is Section 1. You can navigate here using the links or by pressing Alt + 1 (on most browsers).</p>
-        <button class="button" onclick="alert('You clicked the button in Section 1!')">Click Me</button>
-    </section>
 
-    <section id="section2" tabindex="0">
-        <h2>Section 2</h2>
-        <p>This is Section 2. It contains more accessible content.</p>
-        <button class="button" onclick="alert('You clicked the button in Section 2!')">Click Me</button>
-    </section>
 
-    <section id="section3" tabindex="0">
-        <h2>Section 3</h2>
-        <p>This is Section 3. It has additional accessible features.</p>
-        <button class="button" onclick="alert('You clicked the button in Section 3!')">Click Me</button>
-    </section>
-</div>
+
+
+
+/* Default Light Mode */
+body {
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav {
+    background-color: #eee;
+    padding: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: white;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode nav {
+    background-color: #333;
+}
+
+.dark-mode button {
+    background-color: #fff;
+    color: #000;
+}
+
+
+
+
+
 
 <footer>
-    <p>Accessible Web Page Example | Contact Us at <a href="mailto:info@example.com">info@example.com</a></p>
+    <p>&copy; 2025 Your Website</p>
 </footer>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (localStorage.getItem("dark-mode") === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+    });
+</script>
 </body>
 </html>
